@@ -12,6 +12,7 @@ router.post("/:id", (req, res) => {
 router.get("/:id", (req, res) => {
     const {id}= req.params
     console.log(id)
+    console.log(req.params.id)
     res.json({msg: "Get one workout"})
 })
 router.delete("/:id", (req, res) => {
