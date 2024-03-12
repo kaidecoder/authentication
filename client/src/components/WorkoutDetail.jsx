@@ -1,6 +1,6 @@
 import React from 'react'
 
-const WorkoutDetails = ({workout}) => {
+const WorkoutDetail = ({workout}) => {
   return (
     <div className="workout-details">
         <h4>{workout.title}</h4>
@@ -11,4 +11,4 @@ const WorkoutDetails = ({workout}) => {
   )
 }
 
-export default WorkoutDetails
+export default WorkoutDetail
