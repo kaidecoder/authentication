@@ -6,6 +6,7 @@ const app = express()
 const PORT = process.env.PORT
 import workoutRoutes from "./routes/workouts.mjs"
 
+app.use(express.json())
 app.use(morgan("dev"))
 app.use("/api/workouts", workoutRoutes)
 
