@@ -1,5 +1,6 @@
 import express from "express"
 import morgan from "morgan"
+import mongoose from "mongoose"
 import dotEnv from "dotenv"
 dotEnv.config()
 const app = express()
@@ -10,6 +11,16 @@ app.use(express.json())
 app.use(morgan("dev"))
 app.use("/api/workouts", workoutRoutes)
 
-app.listen(PORT, () => {
-    console.log(`Listening on PORT ${PORT}`)
+
+// Connect to Mongoose
+const connectionString = process.env.DB_URI;
+mongoose.connect(connectionString)
+.then(() => {
+    console.log('Connected to MongoDB');
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    })
+})
+.catch(error => {
+    console.log(error)
 })
